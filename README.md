@@ -35,7 +35,7 @@ A robust REST API built with NestJS, featuring JWT authentication, Prisma ORM, a
 3. **Set up environment variables**
    Create a `.env` file in the root directory:
    ```env
-   DATABASE_URL="postgresql://postgres:123@localhost:5434/nest_api"
+   DATABASE_URL="postgresql://postgres:your-password@localhost:5434/your-db"
    JWT_SECRET="your-super-secret-jwt-key-change-this-in-production"
    PORT=3000
    ```
@@ -226,7 +226,3 @@ Your Name
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-
-## 📞 Support
-
-For support, email your-email@example.com or open an issue in the repository.
