@@ -98,7 +98,7 @@ export class AuthService {
 
         // Sign the JWT asynchronously with the payload, setting expiry and secret
         const token = await this.jwt.signAsync(payload, {
-            expiresIn: '15m', // Token is valid for 15 minutes
+            expiresIn: '24h', // Token is valid for 24 hours
             secret: process.env.JWT_SECRET || 'hkjhkhkkkkhkhkhk',
         });
 

@@ -11,6 +11,7 @@ import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { userSelectFields } from 'src/user/user.select';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
@@ -42,12 +43,11 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
             where: {
                 id: payload.sub,
             },
+            select: userSelectFields,
         });
         if (!user) {
             return null;
         }
-        // Ensure password isn't exposed to the rest of the app
-        delete (user as any).password;
         return user;
     }
 }

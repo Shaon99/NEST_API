@@ -11,7 +11,7 @@ import { JwtStrategy } from './strategy/jwt.strategy';
  * - `PassportModule`: Provides strategies for authentication (here for JWT).
  * - `JwtModule`: Configures JWT signing with a secret 
  *   (`process.env.JWT_SECRET` or default if not provided) and 
- *   token expiry (`15m`, i.e., 15 minutes).
+ *   token expiry (`24h`, i.e., 24 hours).
  * - `controllers`: Registers the `AuthController` to handle auth routes (signup/signin).
  * - `providers`: Injects `AuthService` for business logic and `JwtStrategy` for passport JWT validation.
  *
@@ -23,8 +23,8 @@ import { JwtStrategy } from './strategy/jwt.strategy';
         JwtModule.register({
             // The secret key to sign/validate JWTs, loaded from env or set to a default if env missing.
             secret: process.env.JWT_SECRET || 'hkjhkhkkkkhkhkhk',
-            // Each JWT will expire after 15 minutes for security.
-            signOptions: { expiresIn: '15m' },
+            // Each JWT will expire after 24 hours for security.
+            signOptions: { expiresIn: '24h' },
         }),
     ],
     controllers: [AuthController], // Handles HTTP routes for authentication (signup, signin).
